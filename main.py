@@ -1,3 +1,4 @@
+from platform import python_revision
 import pandas as pd
 
 
@@ -16,8 +17,12 @@ x = file.drop('style', axis=1)
 
 x_learing, x_test, y_learning, y_test = train_test_split(x, y, test_size=0.3)
 
-modelo = ExtraTreesClassifier()
-modelo.fit(x_learing, y_learning)
+model = ExtraTreesClassifier()
+model.fit(x_learing, y_learning)
 
-result = modelo.score(x_test, y_test)
+result = model.score(x_test, y_test)
 print("Resultado: ", result)
+
+prev = model.predict(x_test[400:403])
+
+print(prev)
